@@ -33,3 +33,34 @@ const francine = createPet("Francine", "turtle");
 //clover.sleep(); ---test---
 //baxter.play();  ---test---
 //console.log(clover, baxter); ---test---
+
+clover.isTired = 8;
+francine.isTired = 9;
+
+const allPets = [
+    sora, 
+    clover, 
+    baxter, 
+    cleo, 
+    francine
+];
+//console.log(allPets);
+
+const showPets = function (petArray) {
+    //empty list
+    pets.innerHTML = "";
+    for (let pet of petArray) {
+        let status = "ready to play!";
+        if (pet.isTired >= 7) {
+            status = "sleeping.";
+        };
+        const li = document.createElement("li");
+        li.innerHTML = `<span class="pet-name">${pet.name}</span> the ${pet.species} is ${status}`;
+        pets.append(li);
+    }
+};
+
+statusButton.addEventListener("click", function () {
+    showPets(allPets);
+}
+);
